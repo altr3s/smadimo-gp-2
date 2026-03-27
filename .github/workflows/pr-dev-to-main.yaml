@@ -1,0 +1,18 @@
+name: PR to main check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pr-dev-to-main:
+    name: pr-dev-to-main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Allow only PR from dev to main
+        run: |
+          if [ "${{ github.event.pull_request.head.ref }}" != "dev" ]; then
+            echo "Only PRs from dev are allowed"
+            exit 1
+          fi
