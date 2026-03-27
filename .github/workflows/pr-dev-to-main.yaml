@@ -12,12 +12,7 @@ jobs:
     steps:
       - name: Allow only PR from dev to main
         run: |
-          echo "Base branch: ${{ github.event.pull_request.base.ref }}"
-          echo "Head branch: ${{ github.event.pull_request.head.ref }}"
-
           if [ "${{ github.event.pull_request.head.ref }}" != "dev" ]; then
-            echo "Only PRs from dev to main are allowed."
+            echo "Only PRs from dev are allowed"
             exit 1
           fi
-
-          echo "PR source branch is valid."
