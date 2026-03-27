@@ -1,0 +1,38 @@
+name: auto-pr-main-to-dev
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-back-pr:
+    if: >
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.head.ref == 'dev'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create PR main -> dev
+        id: create_pr
+        env:
+          GH_TOKEN: ${{ secrets.AUTOMATION_PAT }}
+        run: |
+          pr_url=$(gh pr create \
+            --base dev \
+            --head main \
+            --title "Sync main back to dev" \
+            --body "Automatic PR after merge dev -> main.")
+
+          pr_number="${pr_url##*/}"
+
+      - name: Enable auto-merge
+        env:
+          GH_TOKEN: ${{ secrets.AUTOMATION_PAT }}
+        run: |
+          gh pr merge ${{ steps.create_pr.outputs.pr_number }} --auto --merge
