@@ -22,4 +22,4 @@ for city in response.json():
 
 cities = pd.DataFrame(rows)
 
-cities.to_csv("SMADIMO-GP-2/data/cities.csv", index=True)
+cities.to_csv("SMADIMO-GP-2/data/cities-aviasales.csv")
