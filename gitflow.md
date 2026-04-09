@@ -10,6 +10,9 @@
 
 ```bash
 git clone https://github.com/altr3s/SMADIMO-GP-2.git
+```
+
+```bash
 cd SMADIMO-GP-2
 ```
 
