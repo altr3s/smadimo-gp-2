@@ -11,5 +11,5 @@ url = "http://yasen.aviasales.ru/adaptors/currency.json"
 headers = {'X-Access-Token': os.getenv("TOKEN")}
 response = requests.request("GET", url, headers=headers)
 
-with open("SMADIMO-GP-2/data/currency.json", "w") as f:
+with open("SMADIMO-GP-2/data/_api/currency.json", "w") as f:
     json.dump(response.json(), f, indent=4)

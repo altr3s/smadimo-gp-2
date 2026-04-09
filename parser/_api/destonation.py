@@ -235,7 +235,7 @@ async def main():
                     logger.info("Счётчики после паузы сброшены")
 
     df_tickets = pd.DataFrame(all_rows)
-    df_tickets.to_csv("SMADIMO-GP-2/data/tickets.csv", index=False)
+    df_tickets.to_csv("SMADIMO-GP-2/data/_api/tickets.csv", index=False)
 
     logger.info("Файл сохранен")
     logger.info("Итоговое количество строк: %s", len(df_tickets))

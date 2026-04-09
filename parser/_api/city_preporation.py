@@ -12,4 +12,4 @@ merged_city.sort_values(by="population_rating", ascending=True, inplace=True)
 merged_city.reset_index(drop=True, inplace=True)
 merged_city.drop(0, axis=0, inplace=True)
 
-merged_city.to_csv("SMADIMO-GP-2/data/cities_prepared.csv", index=False)
+merged_city.to_csv("SMADIMO-GP-2/data/_api/cities_prepared.csv", index=False)
