@@ -24,4 +24,4 @@ for city in response.json():
 
 cities = pd.DataFrame(rows)
 
-cities.to_csv("SMADIMO-GP-2/data/cities-aviasales.csv", index=False)
+cities.to_csv("SMADIMO-GP-2/data/_api/cities-aviasales.csv", index=False)

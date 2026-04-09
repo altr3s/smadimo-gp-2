@@ -46,4 +46,4 @@ for section_id in section_ids:
         rows.append(city)
 
 df = pd.DataFrame({"city": rows}).drop_duplicates().reset_index(drop=True)
-df.to_csv("SMADIMO-GP-2/data/wiki-ru-cities.csv")
+df.to_csv("SMADIMO-GP-2/data/_api/wiki-ru-cities.csv")
