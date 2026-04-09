@@ -1,10 +1,12 @@
 import requests
 import pandas as pd
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
 url = "http://api.travelpayouts.com/data/ru/cities.json"
-headers = {'x-access-token': os.getenv("TOKEN")}
+headers = {'X-Access-Token': os.getenv("TOKEN")}
 response = requests.request("GET", url, headers=headers)
 rows = []
 
@@ -22,4 +24,4 @@ for city in response.json():
 
 cities = pd.DataFrame(rows)
 
-cities.to_csv("SMADIMO-GP-2/data/cities-aviasales.csv")
+cities.to_csv("SMADIMO-GP-2/data/cities-aviasales.csv", index=False)
