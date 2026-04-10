@@ -11,5 +11,5 @@ url = 'https://api.travelpayouts.com/data/en/airlines.json'
 headers = {'X-Access-Token': os.getenv("TOKEN")}
 response = requests.request("GET", url, headers=headers)
 
-with open("SMADIMO-GP-2/data/_api/irline_info.json", "w") as f:
+with open("SMADIMO-GP-2/data/_api/airline_info.json", "w") as f:
     json.dump(response.json(), f, ensure_ascii=False, indent=4)

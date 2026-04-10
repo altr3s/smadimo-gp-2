@@ -19,7 +19,7 @@ def preporation_wiki(df):
 
 
 def preporation_airlines():
-    airlanes_info = json.load(open("SMADIMO-GP-2/data/airline_info.json", "r"))
+    airlanes_info = json.load(open("SMADIMO-GP-2/data/_api/airline_info.json", "r"))
     airlanes_info_df = pd.DataFrame(airlanes_info)
     airlanes_info_df.drop('name_translations', axis=1, inplace=True)
     return airlanes_info_df
@@ -33,7 +33,7 @@ def add_top_destanations(iata_code, df):
     response = requests.request("GET", url, headers=headers, params=query)
 
     answer = []
-    with open("SMADIMO-GP-2/data/airline_directions.json", "w") as f:
+    with open("SMADIMO-GP-2/data/_api/airline_directions.json", "w") as f:
         for k, v in response.json()['data'].items():
             answer.append(
                 (k, v)
