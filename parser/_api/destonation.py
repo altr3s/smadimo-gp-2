@@ -98,10 +98,10 @@ async def main():
 
     OTHER_CURRENCIES = {"rub", "usd", "eur", "cny"}
     
-    df_iata = pd.read_csv("SMADIMO-GP-2/data/cities_prepared.csv")
+    df_iata = pd.read_csv("SMADIMO-GP-2/data/_api/cities_prepared.csv")
     IATA_CODES = df_iata["IATA_code"].to_list()
 
-    with open("SMADIMO-GP-2/data/currency.json", "r", encoding="utf-8") as f:
+    with open("SMADIMO-GP-2/data/_api/currency.json", "r", encoding="utf-8") as f:
         currency_rate = json.load(f)
 
     columns = [
@@ -115,7 +115,7 @@ async def main():
         "distance"
     ]
 
-    market_df = pd.read_csv("SMADIMO-GP-2/data/market_prepared.csv")
+    market_df = pd.read_csv("SMADIMO-GP-2/data/_api/market_prepared.csv")
     market_dict = make_market_dict(market_df, OTHER_CURRENCIES)
 
     sem = asyncio.Semaphore(5)

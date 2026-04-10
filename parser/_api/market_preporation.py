@@ -1,8 +1,7 @@
 import pandas as pd
 import numpy as np
 
-
-df_market = pd.read_csv("SMADIMO-GP-2/data/market.xlsx - Sheet1.csv")
+df_market = pd.read_csv("SMADIMO-GP-2/data/_api/market.xlsx - Sheet1.csv")
 df_market.drop(
     ["Домен", "Другие поддерживаемые языки", "Язык по умолчанию (Список поддерживаемых языков)", "Другие поддерживаемые валюты"], axis=1, inplace=True
 )
